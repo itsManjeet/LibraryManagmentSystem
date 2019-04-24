@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QSql>
+#include <QDir>
+#include <QDebug>
 
 namespace Ui {
 class MainWindow;
@@ -15,6 +16,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_Go_Btn_clicked();
 
 private:
     Ui::MainWindow *ui;
