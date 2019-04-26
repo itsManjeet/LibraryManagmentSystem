@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QDir>
 #include <QDebug>
-
+#include <QStringListModel>
 namespace Ui {
 class MainWindow;
 }
@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void SetData(QString Number);
 };
 
 #endif // MAINWINDOW_H
