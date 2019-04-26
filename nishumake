@@ -1,0 +1,4 @@
+Exec : qmake
+Exec : make -j8
+Exec : ./LibraryManagmentSystem
+Exec : git clean -f
