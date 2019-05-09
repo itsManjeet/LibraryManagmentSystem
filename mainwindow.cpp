@@ -13,10 +13,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     /*  Load Database  */
 
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/itsmanjeet/Projects/LibraryManagmentTools/Library/share/student.db");
+    db = QSqlDatabase::addDatabase("QSQLITE","Students Connection");
+    db.setDatabaseName("/home/itsmanjeet/Projects/LibraryManagmentTools/Library/student.db");
     if (!db.open()) {
-        ui->MSG_LABEL->setText("Error while Opening Database\n" + db.lastError().text());
+        ui->MSG_LABEL->setText("Error while Opening Students Database\n" + db.lastError().text());
+    }
+
+    bookdb = QSqlDatabase::addDatabase("QSQLITE","Books Database");
+    bookdb.setDatabaseName("/home/itsmanjeet/Projects/LibraryManagmentTools/Library/books.db");
+    if (!bookdb.open()) {
+        ui->MSG_LABEL->setText( ui->MSG_LABEL->text() + "Error while Opening Books Database\n" + bookdb.lastError().text());
     }
 }
 
@@ -47,6 +53,14 @@ int MainWindow::load_data(int rollno)
         ui->Name_Box->setText(query.value(1).toString());
         ui->Roll_NoBox->setText(QString::number(rollno));
         ui->SemBox->setText(QString::number( (date.year() - ((rollno % 100) + 2000))*2) + "th");
+        for(int i = 0; i<4; i++) {
+            BBK[i] = query.value(i+2).toInt();
+            ui->Book_Bank_List->addItem(QString::number(query.value(i+2).toInt()));
+        }
+        for(int i= 0; i<3;i++) {
+            MOB[i] = query.value(i+6).toInt();
+            ui->MonthlyBookList->addItem(QString::number(query.value(i+6).toInt()));
+        }
     }    else {
         ui->MSG_LABEL->setText("No Data Found for rollno \n" + db.lastError().text());
     }
@@ -58,4 +72,23 @@ void MainWindow::on_BACK_BTN_clicked()
     ui->stackedWidget->setCurrentIndex(0);
     ui->ROLL_NO_BOX->setText("");
     ROLL_NO = 0;
+}
+
+void MainWindow::on_Book_Bank_List_itemDoubleClicked(QListWidgetItem *item)
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    QSqlQuery query(bookdb);
+    query.prepare("SELECT * FROM BOOKS WHERE ID = " + item->text());
+    if(!query.exec()) {
+        ui->MSG_LABEL->setText("Error while Processing Query : SELECT BOOK \n" + db.lastError().text());
+    }
+    query.next();
+    ui->MSG_LABEL->setText(item->text());
+    ui->BOOK_ID->setText(QString::number(query.value(0).toInt()));
+    ui->OCCUPIED_BY->setText(QString::number(query.value(1).toInt()));
+}
+
+void MainWindow::on_BACK_FROM_BOOK_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }

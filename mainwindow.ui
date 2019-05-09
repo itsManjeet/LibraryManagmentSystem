@@ -38,7 +38,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -194,34 +194,21 @@
         </item>
         <item>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="1" column="1">
+          <item row="2" column="3">
            <widget class="QLabel" name="label_3">
             <property name="text">
              <string>Roll Number </string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
+          <item row="0" column="3">
            <widget class="QLabel" name="label_2">
             <property name="text">
              <string>Name</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="6" column="2">
+          <item row="7" column="4">
            <spacer name="verticalSpacer_2">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -234,17 +221,101 @@
             </property>
            </spacer>
           </item>
-          <item row="0" column="2">
+          <item row="0" column="4">
            <widget class="QLineEdit" name="Name_Box">
             <property name="enabled">
              <bool>false</bool>
             </property>
            </widget>
           </item>
-          <item row="4" column="2">
+          <item row="5" column="4">
            <widget class="QListWidget" name="MonthlyBookList"/>
           </item>
-          <item row="0" column="3">
+          <item row="4" column="4">
+           <widget class="QListWidget" name="Book_Bank_List"/>
+          </item>
+          <item row="4" column="3">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Book Bank</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QLineEdit" name="Roll_NoBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QLineEdit" name="SemBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Monthly Books</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Semester</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="4">
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="5">
+           <widget class="QLineEdit" name="lineEdit"/>
+          </item>
+          <item row="5" column="5">
+           <widget class="QLineEdit" name="lineEdit_2"/>
+          </item>
+          <item row="5" column="6">
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="text">
+             <string>Add Monthly Box</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="6">
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>Add Book Bank</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="7">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="5" colspan="3">
            <spacer name="horizontalSpacer_5">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -257,53 +328,129 @@
             </property>
            </spacer>
           </item>
-          <item row="3" column="2">
-           <widget class="QListWidget" name="Book_Bank_List"/>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="label_5">
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_3">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="BACK_FROM_BOOK">
             <property name="text">
-             <string>Book Bank</string>
+             <string>BACK</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QLineEdit" name="Roll_NoBox">
-            <property name="enabled">
-             <bool>false</bool>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QLineEdit" name="SemBox">
-            <property name="enabled">
-             <bool>false</bool>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
             </property>
-           </widget>
+           </spacer>
           </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
           <item row="4" column="1">
-           <widget class="QLabel" name="label_6">
+           <widget class="QLabel" name="label_10">
             <property name="text">
-             <string>Monthly Books</string>
+             <string>To Date</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="label_8">
             <property name="text">
-             <string>Semester</string>
+             <string>Occupied By</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="2">
-           <spacer name="verticalSpacer_4">
+          <item row="3" column="1">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>From Date</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="3">
+           <widget class="QLineEdit" name="TO_DATE">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QLineEdit" name="FROM_DATE">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Book ID</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLineEdit" name="BOOK_ID">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QLineEdit" name="OCCUPIED_BY">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_8">
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>20</width>
-              <height>40</height>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="4">
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
              </size>
             </property>
            </spacer>
