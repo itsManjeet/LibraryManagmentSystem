@@ -1,1 +1,1 @@
-lib/datamanager.c : -fPIC -shared -o libdatamanagment.so -Wincompatible-pointer-types
+lib/datamanagment.c : -fPIC -shared -o lib/libdatamanagment.so -Wincompatible-pointer-types
