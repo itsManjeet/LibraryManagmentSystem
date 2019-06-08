@@ -1,36 +1,46 @@
 from database import connect, Student
 from sqlalchemy import text
 
-def StudentData(Roll):
-    query = text("SELECT * FROM STUDENT where ROLLNO = :x")
+def retrive(roll):
+    query = text("SELECT * FROM STUDENT WHERE ROLLNO = :x")
     try:
-        data = connect.execute(query,x = Roll ).fetchall()[0]
+        data = connect.execute(query,x = roll ).fetchall()[0]
     except IndexError as e:
         if str(e) == 'list index out of range':
             return None
 
     print(data)
-    student = {
-        'RollNo':data[0],
-        'Name':data[1],
-        'MonthlyBooks':data[2:5],
-        'BookBank':data[6:8],
-        'Fine' : data[9]
+    
+    student_data = {
+        'roll' : data[0],
+        'name' : data[1],
+        'mbk1' : data[2],
+        'mbk2' : data[3],
+        'mbk3' : data[4],
+        'mbk4' : data[5],
+        'bbk1' : data[6],
+        'bbk2' : data[7],
+        'bbk3' : data[8],
+        'fine' : data[9],
     }
 
-    return student
+    return student_data
+     
 
-def AddBookBank(data,Book):
-    BookBank = data['BookBank']
-    j = 0
-    for i in BookBank:
-        print("Book : ",i)
-        if i == '':
-            print("None found")
-            query = text("UPDATE STUDENT SET :x = :a WHERE ROLLNO = :y")
-            BK = "BOOKBANK%d"%j
-            data = connect.execute(query,x = BK, a = Book, y = data['RollNo'])
-            print(data)
-        j += 1
+def update(data):
+    query = text("UPDATE STUDENT SET NAME=:n, MONTHLYBOOK1=:a, MONTHLYBOOK2=:b, MONTHLYBOOK3=:c, MONTHLYBOOK4=:d, BOOKBANK1=:e, BOOKBANK2=:f, BOOKBANK3=:g, FINE=:h WHERE ROLLNO=:r")
+    try:
+        data = connect.execute(query,n = data['name'],
+                                     a = data['mbk1'],
+                                     b = data['mbk2'],
+                                     c = data['mbk3'],
+                                     d = data['mbk4'],
+                                     e = data['bbk1'],
+                                     f = data['bbk2'],
+                                     g = data['bbk3'],
+                                     h = data['fine'],
+                                     r = data['roll']).fetchall()
+    except Exception as e:
+        print(e)
 
-        
+    print(data)
